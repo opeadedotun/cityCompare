@@ -1,0 +1,534 @@
+:root {
+  --primary-color: #1a1f2c;
+  --secondary-color: #2a2f3c;
+  --accent-color: #008751; /* Nigerian green */
+  --text-color: #ffffff;
+  --text-muted: #8a8d93;
+  --success-color: #2ecc71;
+  --warning-color: #f1c40f;
+  --danger-color: #e74c3c;
+  --card-bg: #2a2f3c;
+  --border-color: #3a3f4c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 2rem 1rem;
+  text-align: center;
+  background-color: var(--secondary-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  padding: 0 1rem;
+}
+
+.city-selector {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+select,
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+select {
+  min-width: min(200px, 100%);
+  max-width: 100%;
+}
+
+button {
+  background-color: var(--accent-color);
+  border: none;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  padding: 0.75rem 2rem;
+  width: 100%;
+  max-width: 200px;
+}
+
+button:hover {
+  background-color: #006b41; /* Darker Nigerian green */
+}
+
+.comparison-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.comparison-container.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cities-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.city-header {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.city-header h2 {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.city-header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.comparison-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.side-by-side-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+.comparison-label {
+  grid-column: 1 / -1;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.category-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.category-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  border-radius: 6px;
+}
+
+.category-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.category-header span {
+  text-align: center;
+}
+
+.category-header span:first-child {
+  text-align: left;
+}
+
+.overview-card {
+  grid-column: 1 / -1;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 1rem 0;
+}
+
+.city-data {
+  background-color: var(--primary-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.city-data-header {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.city-data-header h4 {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.overview-card {
+  background-color: var(--primary-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.overview-card-header {
+  text-align: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.overview-card-header h3 {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.overview-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--secondary-color);
+  border-radius: 6px;
+}
+
+.data-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.data-value {
+  font-weight: 500;
+}
+
+.comparison-stat {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.stat-difference {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.stat-difference.positive {
+  background-color: var(--success-color);
+}
+.stat-difference.negative {
+  background-color: var(--danger-color);
+}
+.stat-difference.neutral {
+  background-color: var(--warning-color);
+  color: #000;
+}
+
+.price-card {
+  background-color: var(--primary-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.price-card h4 {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.price {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.price-difference {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.weather-info {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+}
+
+.temperature {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  color: var(--accent-color);
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.recommendation-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.recommendation-header {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1.5rem;
+}
+
+.recommendation-card {
+  background-color: var(--primary-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.recommendation-card h3 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.recommendation-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+footer {
+  margin-top: auto;
+  background-color: var(--secondary-color);
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 1rem;
+}
+
+.references {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.references h3 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.references ul {
+  list-style: none;
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.references li {
+  color: var(--text-muted);
+}
+
+.disclaimer {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 1.5rem;
+  font-style: italic;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .city-selector {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  select,
+  button {
+    width: 100%;
+    max-width: none;
+  }
+
+  .cities-header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-content {
+    gap: 1rem;
+  }
+
+  .side-by-side-comparison {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .category-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .category-header {
+    display: none;
+  }
+
+  .data-row {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .comparison-card {
+    padding: 1rem;
+  }
+
+  .city-data {
+    padding: 1rem;
+  }
+
+  .price-card {
+    padding: 1rem;
+  }
+
+  .weather-info {
+    padding: 1rem;
+  }
+
+  .temperature {
+    font-size: 2.5rem;
+  }
+
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-card {
+    grid-column: auto;
+  }
+}

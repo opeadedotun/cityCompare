@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigerian Cities Comparison - Make Informed Relocation Decisions</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Compare Nigerian Cities</h1>
+        <p class="subtitle">Make informed decisions about where to live and work in Nigeria</p>
+        <div class="city-selector">
+            <select id="city1" aria-label="Select first city to compare">
+                <option value="">Select First City</option>
+                <option value="Lagos">Lagos</option>
+                <option value="Abuja">Abuja</option>
+                <option value="Port Harcourt">Port Harcourt</option>
+                <option value="Kano">Kano</option>
+                <option value="Ibadan">Ibadan</option>
+                <option value="Benin City">Benin City</option>
+                <option value="Enugu">Enugu</option>
+                <option value="Kaduna">Kaduna</option>
+                <option value="Abeokuta">Abeokuta</option>
+                <option value="Warri">Warri</option>
+                <option value="Owerri">Owerri</option>
+                <option value="Calabar">Calabar</option>
+                <option value="Jos">Jos</option>
+                <option value="Uyo">Uyo</option>
+            </select>
+            <select id="city2" aria-label="Select second city to compare">
+                <option value="">Select Second City</option>
+                <option value="Lagos">Lagos</option>
+                <option value="Abuja">Abuja</option>
+                <option value="Port Harcourt">Port Harcourt</option>
+                <option value="Kano">Kano</option>
+                <option value="Ibadan">Ibadan</option>
+                <option value="Benin City">Benin City</option>
+                <option value="Enugu">Enugu</option>
+                <option value="Kaduna">Kaduna</option>
+                <option value="Abeokuta">Abeokuta</option>
+                <option value="Warri">Warri</option>
+                <option value="Owerri">Owerri</option>
+                <option value="Calabar">Calabar</option>
+                <option value="Jos">Jos</option>
+                <option value="Uyo">Uyo</option>
+            </select>
+            <button id="compareButton">Compare Cities</button>
+        </div>
+    </header>
+
+    <div class="comparison-container" id="comparisonContainer">
+        <div class="cities-header">
+            <div class="city-header" id="city1Header"></div>
+            <div class="city-header" id="city2Header"></div>
+        </div>
+
+        <div class="comparison-grid">
+            <div class="comparison-card overview-card">
+                <div class="card-header">
+                    <h3>📊 Overview</h3>
+                </div>
+                <div class="card-content">
+                    <div class="side-by-side-comparison">
+                        <div id="overviewSection1"></div>
+                        <div id="overviewSection2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comparison-card">
+                <div class="card-header">
+                    <h3>🏠 Housing & Cost of Living</h3>
+                </div>
+                <div class="card-content">
+                    <div id="housingSection"></div>
+                    <div class="section-divider"></div>
+                    <div id="costOfLivingSection"></div>
+                </div>
+            </div>
+
+            <div class="comparison-card">
+                <div class="card-header">
+                    <h3>💼 Career & Economy</h3>
+                </div>
+                <div class="card-content">
+                    <div id="salarySection"></div>
+                    <div class="section-divider"></div>
+                    <div id="taxSection"></div>
+                </div>
+            </div>
+
+            <div class="comparison-card">
+                <div class="card-header">
+                    <h3>🌍 Environment & Safety</h3>
+                </div>
+                <div class="card-content">
+                    <div id="weatherSection"></div>
+                    <div class="section-divider"></div>
+                    <div id="crimeSection"></div>
+                </div>
+            </div>
+
+            <div class="comparison-card">
+                <div class="card-header">
+                    <h3>👥 Demographics & Population</h3>
+                </div>
+                <div class="card-content">
+                    <div id="demographicsSection"></div>
+                    <div class="section-divider"></div>
+                    <div id="populationSection"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="recommendation-section" id="recommendationSection"></div>
+    </div>
+
+    <footer>
+        <div class="references">
+            <h3>Data Sources</h3>
+            <p>Information sourced from:</p>
+            <ul>
+                <li><a href="https://www.cbn.gov.ng" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria (CBN)</a></li>
+                <li><a href="https://www.nigerianstat.gov.ng" target="_blank" rel="noopener noreferrer">National Bureau of Statistics (NBS)</a></li>
+                <li>Nigerian Meteorological Agency (NiMet)</li>
+                <li>State Government Databases</li>
+                <li>Real Estate Market Analysis</li>
+            </ul>
+            <p class="disclaimer">* Data is approximate and updated periodically. Please verify critical information before making decisions.</p>
+        </div>
+        <p>© 2024 CityCompare. All rights reserved.</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
