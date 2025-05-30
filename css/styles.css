@@ -533,3 +533,7 @@ footer {
     grid-column: auto;
   }
 }
+
+.copyright {
+  text-align: center;
+}
