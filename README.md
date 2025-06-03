@@ -16,6 +16,18 @@ City Compare provides detailed comparisons of different Nigerian cities, offerin
 - Cultural Amenities
 - Climate Information
 
+## Download Mobile App
+
+<div class="download-section">
+    <h3>Get CityCompare on Your Android Device</h3>
+    <p>Compare Nigerian cities on the go with our mobile app</p>
+    <a href="https://www.upload-apk.com/rY7ejP1yku7HZb8" class="download-button">
+        <span class="icon">📱</span>
+        Download Android App
+        <span class="download-badge">854 KB</span>
+    </a>
+</div>
+
 ## Features
 
 - Interactive city comparison tools
